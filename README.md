@@ -62,7 +62,7 @@ Para rodar o projeto localmente, você precisa ter:
 ### 1. Clonar o repositório
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
+git clone https://github.com/baxelin/devops-docker-ci
 cd devops-docker-cicd
 ```
 
