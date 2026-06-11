@@ -1,0 +1,28 @@
+name: CI Docker
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build da imagem
+        run: docker build -t meu-site:ci
+
+      - name: Teste rápido do container
+        run: |
+          docker run -d --name meu-site-test -p 8080:80 meu-site:ci
+          sleep 5
+          curl -f http://localhost:8080
+          docker stop meu-site-test
