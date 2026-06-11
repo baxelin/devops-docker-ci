@@ -18,7 +18,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build da imagem
-        run: docker build -t meu-site:ci
+        run: docker build -t meu-site:ci .
 
       - name: Teste rápido do container
         run: |
